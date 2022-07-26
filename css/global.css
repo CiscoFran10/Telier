@@ -1,0 +1,318 @@
+:root {
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-accent: #eebd0a;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  padding: 0 1.4em;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.header {
+  display: flex;
+  max-width: 1500px;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 30px 0px;
+}
+
+.logo {
+  color: var(--color-accent);
+  font-size: 2rem;
+  font-family: "Cinzel";
+  font-weight: 400;
+}
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 50px;
+}
+
+.header-menu a {
+  display: inline-block;
+  font-size: 1.125rem;
+  padding: 15px 0px;
+  position: relative;
+}
+
+.header-menu a:hover::after {
+  width: 100%;
+}
+
+.header-menu a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0px;
+  transition: 0.3s;
+  height: 1px;
+  margin-top: 4px;
+  background-color: var(--color-accent);
+}
+
+.shop {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.shop h1 {
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin-bottom: 45px;
+  font-family: "Cinzel";
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-content: center;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list a {
+  font-size: 1.2rem;
+}
+
+.nav-list a:hover,
+.nav-list a:active {
+  color: var(--color-accent);
+}
+
+.nav-list li:nth-child(2)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  right: 100px;
+  height: 30px;
+  background-color: var(--color-text);
+  position: absolute;
+}
+
+.nav-list li:nth-child(2)::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  right: -30px;
+  height: 30px;
+  background-color: var(--color-text);
+  position: absolute;
+}
+
+.products {
+  padding: 60px 0px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 80px 40px;
+  position: relative;
+}
+
+.images {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  transition: display 2s ease-in;
+}
+
+.img-hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: display 2s ease-in;
+}
+
+.images:hover .img-hover {
+  display: inline;
+}
+
+.card-title {
+  font-family: "Cinzel";
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 25px;
+}
+
+.card-price {
+  font-family: "Cinzel";
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+
+.footer-info {
+  background: url(https://images.unsplash.com/photo-1621972660295-0ae270b0b38e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+    no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 90px 20px;
+  margin: 60px 0px;
+}
+
+.footer-info h1 {
+  margin-bottom: 20px;
+  line-height: 1;
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: "Cinzel";
+  color: var(--color-accent);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.form input {
+  padding: 16px;
+}
+
+.form button {
+  padding: 10px 15px;
+  border: 0;
+  background-color: #111;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.footer-links {
+  padding: 40px 20px;
+}
+
+.footer-links ul {
+  display: flex;
+  gap: 30px;
+  padding-top: 30px ;
+}
+
+.footer-links a {
+  color: lightgray;
+  border-bottom: 1px solid gray;
+  padding-bottom: 3px;
+}
+
+@media (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-menu a {
+    color: var(--color-accent);
+    padding: 10px;
+    background-color: #111;
+  }
+
+  .shop .titulo,
+  .nav-list {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .header-menu a::after {
+    display: none;
+  }
+
+  .products {
+    padding-top: 20px;
+  }
+}
