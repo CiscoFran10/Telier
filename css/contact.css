@@ -57,7 +57,7 @@
 }
 
 .contact-form label::after {
-  content: "＊";
+  content: "*";
 }
 
 .contact-form input {
