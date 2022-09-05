@@ -63,6 +63,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 600px 400px 700px 600px;
   grid-auto-flow: dense;
+  padding: 0 1.4em;
 }
 
 .catalog-grid img {

@@ -1,6 +1,5 @@
-function animateScroll() {
+export default function animateScroll() {
   const imgs = document.querySelectorAll(".gatalog-grid-js img");
-  console.log(imgs);
 
   function animaScroll() {
     imgs.forEach((img) => {
@@ -17,5 +16,3 @@ function animateScroll() {
 
   window.addEventListener("scroll", animaScroll);
 }
-
-animateScroll();
