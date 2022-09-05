@@ -46,6 +46,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Raleway", Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 /* A elements that don't have a class get default styles */
@@ -63,7 +64,9 @@ img,
 picture {
   width: 100%;
   display: block;
+  transition: 0.5s ease;
 }
+
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -91,13 +94,16 @@ select {
 
 .header {
   display: flex;
-  max-width: 1500px;
   justify-content: space-between;
-  margin: 0 auto;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 0px 100px;
   gap: 30px 0px;
+  position: fixed;
+  background-color: #000;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
 }
 
 .logo {
@@ -105,6 +111,10 @@ select {
   font-size: 2rem;
   font-family: "Cinzel";
   font-weight: 400;
+}
+
+.logo:hover {
+  color: var(--color-text);
 }
 
 .header-menu {
@@ -116,7 +126,7 @@ select {
 .header-menu a {
   display: inline-block;
   font-size: 1.125rem;
-  padding: 15px 0px;
+  padding: 10px 0px;
   position: relative;
 }
 
@@ -135,105 +145,9 @@ select {
   background-color: var(--color-accent);
 }
 
-.shop {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.shop h1 {
-  font-weight: 400;
-  font-size: 2.8rem;
-  margin-bottom: 45px;
-  font-family: "Cinzel";
-}
-
-.nav-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-  justify-content: center;
-}
-
-.nav-list li {
-  position: relative;
-}
-
-.nav-list a {
-  font-size: 1.2rem;
-}
-
-.nav-list a:hover,
-.nav-list a:active {
-  color: var(--color-accent);
-}
-
-.nav-list li:nth-child(2)::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  right: 100px;
-  height: 30px;
-  background-color: var(--color-text);
-  position: absolute;
-}
-
-.nav-list li:nth-child(2)::before {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  right: -30px;
-  height: 30px;
-  background-color: var(--color-text);
-  position: absolute;
-}
-
-.products {
-  padding: 60px 0px;
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 80px 40px;
-  position: relative;
-}
-
-.images {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  transition: display 2s ease-in;
-}
-
-.img-hover {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  transition: display 2s ease-in;
-}
-
-.images:hover .img-hover {
-  display: inline;
-}
-
-.card-title {
-  font-family: "Cinzel";
-  margin-bottom: 5px;
-  font-weight: 400;
-  font-size: 1.2rem;
-  margin-top: 25px;
-}
-
-.card-price {
-  font-family: "Cinzel";
-  font-size: 1.2rem;
-  color: var(--color-accent);
-}
 
 .footer-info {
-  background: url(https://images.unsplash.com/photo-1621972660295-0ae270b0b38e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+  background: url(../img/bg/troy-spoelma-03mI51AMHoE-unsplash.jpg)
     no-repeat;
   background-position: center;
   background-size: cover;
@@ -244,6 +158,7 @@ select {
 .footer-info h1 {
   margin-bottom: 20px;
   line-height: 1;
+  letter-spacing: 2px;
   font-size: 2.5rem;
   font-weight: 400;
   font-family: "Cinzel";
@@ -261,15 +176,17 @@ select {
   padding: 16px;
 }
 
-.form button {
-  padding: 10px 15px;
+form .btn {
+  padding: 16px 30px;
+  font-size: 1.2rem;
   border: 0;
   background-color: #111;
   color: var(--color-accent);
   cursor: pointer;
+  
 }
 
-.form button:hover {
+form .btn:hover {
   background-color: var(--color-accent);
   color: var(--color-bg);
 }
@@ -281,7 +198,7 @@ select {
 .footer-links ul {
   display: flex;
   gap: 30px;
-  padding-top: 30px ;
+  padding-top: 30px;
 }
 
 .footer-links a {
@@ -290,29 +207,67 @@ select {
   padding-bottom: 3px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .header {
     flex-direction: column;
     justify-content: center;
   }
 
-  .header-menu a {
-    color: var(--color-accent);
-    padding: 10px;
-    background-color: #111;
-  }
-
-  .shop .titulo,
-  .nav-list {
-    text-align: left;
-    justify-content: flex-start;
-  }
-
   .header-menu a::after {
     display: none;
   }
+}
 
-  .products {
-    padding-top: 20px;
+/* ABOUT SECTION */
+
+.about {
+  margin: 200px 0 0 140px;
+  max-width: 1000px;
+  animation: show 2s ease-out;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    color: #000;
+  }
+  to {
+    opacity: 1;
+    color: #fff;
   }
 }
+
+.about-text {
+  font-size: 2rem;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+@keyframes text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.about p + p::after {
+  content: "";
+  display: block;
+  width: 40%;
+  margin: 40px 0px;
+  height: 1px;
+  background-color: var(--color-text);
+  position: absolute;
+}
+
+.about span {
+  display: block;
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+

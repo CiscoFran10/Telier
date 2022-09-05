@@ -1,0 +1,102 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 140px 40px;
+  gap: 60px;
+}
+
+.contact .titulo {
+  font-size: 3rem;
+  margin-top: 220px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../img/bg/alexander-naglestad-MZbZQEx91Ek-unsplash.jpg");
+
+  background-size: cover;
+}
+
+.intro h2 {
+  font-weight: 500;
+  font-size: 3.5rem;
+  margin-bottom: 5px;
+}
+
+.intro span {
+  display: block;
+  color: var(--color-accent);
+  font-size: 2rem;
+  font-family: "cinzel";
+  margin-bottom: 50px;
+}
+
+.intro ul {
+  display: flex;
+  gap: 40px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.intro ul img:hover{
+  transform: scale(1.2);
+}
+
+.contact-form {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.contact-form label::after {
+  content: "＊";
+}
+
+.contact-form input {
+  padding: 10px;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  background-color: #fafafa;
+}
+
+.contact-form input:focus,
+textarea {
+  outline-color: var(--color-accent);
+}
+
+textarea {
+  font-size: 1.1rem;
+  padding: 10px;
+  background-color: #fafafa;
+}
+.contact-form .flex {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.flex input {
+  width: 100%;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  margin-top: 30px;
+  padding: 16px 70px;
+}
