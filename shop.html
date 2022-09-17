@@ -9,50 +9,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Ibarra+Real+Nova:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="shortcut icon" href="./img/icon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/icon.svg" type="image/x-icon">
   <link rel="stylesheet" href="./css/style.css">
-  <title>About</title>
+  <title>Telier</title>
 </head>
 
 <body>
   <header class="header">
     <a class="logo" href="./index.html">Telier</a>
 
-    <nav class="nav">
-      <nav class="mobile">
-        <a class="cart-mobile" href="../cart.html"><img class="icon" src="./img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <button class="btn-mobile"></button>
 
-        <button class="btn-mobile"></button>
-      </nav>
       <ul class="header-menu">
-        <li><a href="#">Cart</a></li>
         <li><a href="./index.html">Catalog</a></li>
-        <li><a href="./shop/shop.html">Shop</a></li>
+        <li><a href="./shop.html">Shop</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
+      <button class="cart-btn" href="../cart.html"><img class="icon" src="../img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="Cart button"></button>
     </nav>
   </header>
 
-  <main class="about" aria-label="About us">
-    <p class="about-text">Telier is a market defining brand showing strong international growth.
+  <section class="shop" aria-label="Products">
+    <div>
+      <h1 class="titulo">Shop</h1>
+      <ul class="nav-list" role="menu" aria-label="Secondary navigation">
+        <li><button class="btn" id="all-btn">All</button></li>
+        <li><button class="btn" id="suits-btn">Suits</button></li>
+        <li><button class="btn" id="shoes-btn">Shoes</button></li>
+        <li><button class="btn" id="accessory-btn">Accessories</button></li>
+        <li>
+          <form role="search" class="search-form">
+            <input type="text" id="search-input" placeholder="Search here">
+            <button id="search-btn"><img class="icon" src="./img/search.svg" alt="search-btn"></button>
+          </form>
+        </li>
+      </ul>
+    </div>
 
-      We are pioneers at everything we do, and we work hard to keep it that way. Our pioneering spirit generates a contagious energy, which is what enables us to keep putting new ideas into practice.
+    <div class="products">
+      <div class="not-found">
+        <h2>Product not found</h2>
+      </div>
+    </div>
 
-      Our strength lies in our formula: straight, to the point and still personal. Fast and effective. Combining craftsmanship with flair.
+  </section>
 
-      There are few things that distract us. This approach enables us to create an environment in which our customers feel that we only have eyes for them. We are there for people who want to be seen.</p>
-
-    <p class="about-text">With fantastic deals on suits, formalwear, casualwear and accessories from some of the UK’s leading designers. We´re dedicated to dressing men well, with superb customer service and a constantly evolving range of products.</p>
-
-    <span>- Telier</span>
-
-  </main>
-
-  <footer class="footer">
+  <footer class="footer" aria-label="Rodapé">
     <div class="footer-info">
       <h1>RECENT PRODUCTS</h1>
-      <p> Sign up to receive news and updates..</p>
+      <p>
+        Sign up to receive news and updates.</p>
       <form class="form">
         <input type="email" name="email" id="email" placeholder="E-mail address">
         <button class="btn">Sign-up</button>
