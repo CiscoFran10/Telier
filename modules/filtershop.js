@@ -149,7 +149,7 @@ export default function filterShop() {
 				let { title, imageFront, imageBack, price } = item;
 				return `<div class="card">
 			<div class="images">
-				<img src="${imageFront}" alt="product">
+				<img class="img-front" src="${imageFront}" alt="product">
 				<img class="img-hover" src="${imageBack}">
 			</div>
 			<h2 class="card-title">${title}</h2>
