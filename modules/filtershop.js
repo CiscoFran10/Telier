@@ -1,3 +1,4 @@
+import cardModal from "./card-modal.js";
 export default function filterShop() {
 	const database = [
 		{
@@ -180,12 +181,16 @@ export default function filterShop() {
 
 			if (e.target.id === "suits-btn") {
 				generateCards(suits);
+				cardModal();
 			} else if (e.target.id === "shoes-btn") {
 				generateCards(shoes);
+				cardModal();
 			} else if (e.target.id === "accessory-btn") {
 				generateCards(accessories);
+				cardModal();
 			} else if (e.target.id === "all-btn") {
 				generateCards(database);
+				cardModal();
 			}
 		}
 
@@ -194,12 +199,13 @@ export default function filterShop() {
 	filter();
 
 	function search() {
-		const searchInput = document.getElementById("search-input");
 		const searchBtn = document.getElementById("search-btn");
 		searchBtn.addEventListener("click", searchItens);
 
 		function searchItens(e) {
 			e.preventDefault();
+			const searchInput = document.getElementById("search-input");
+			const notFound = document.querySelector(".not-found");
 
 			searchInput.classList.add("ativo");
 
@@ -208,21 +214,33 @@ export default function filterShop() {
 			function closeInput(e) {
 				if (e.target !== searchBtn && e.target !== searchInput) {
 					searchInput.classList.remove("ativo");
+					cardModal();
 				}
 			}
 
 			let searchValue = searchInput.value.toLowerCase();
 
 			if (searchValue) {
-				generateCards(
+				const filter = generateCards(
 					database.filter((item) =>
 						item.title.toLowerCase().includes(searchValue)
 					)
 				);
+
+				if (filter === "") {
+					notFound.classList.add("show");
+				} else {
+					notFound.classList.remove("show");
+				}
+
+				cardModal();
 			}
+
 			function verificaInput() {
 				if (searchInput.value === "") {
 					generateCards(database);
+					notFound.classList.remove("show");
+					cardModal();
 				}
 			}
 			searchInput.addEventListener("keyup", verificaInput);

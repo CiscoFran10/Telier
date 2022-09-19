@@ -9,6 +9,17 @@
 	display: none;
 }
 
+.not-found {
+	display: none;
+	margin: 140px;
+	font-family: "Cinzel";
+	font-weight: 400;
+}
+
+.show {
+	display: block;
+}
+
 .shop h1 {
 	font-weight: 400;
 	font-size: 4rem;
@@ -257,7 +268,7 @@
 	.shop .titulo {
 		font-size: 2rem;
 	}
-	.search-form {	
+	.search-form {
 		top: 350px;
 		left: 20px;
 	}

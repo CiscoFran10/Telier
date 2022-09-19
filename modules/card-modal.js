@@ -11,8 +11,8 @@ export default function cardModal() {
 
 	function openModal(element) {
 		element = this;
-		let imgFront = element.querySelector(".img-front").getAttribute("src");
-		let imageBack = element.querySelector(".img-hover").getAttribute("src");
+		let imgFront = element.querySelector(".img-front").src;
+		let imageBack = element.querySelector(".img-hover").src;
 		let title = element.querySelector(".card-title").innerHTML;
 		let price = element.querySelector(".card-price").innerHTML;
 		// let description = element.querySelector(".card-description").innerHTML;
@@ -23,7 +23,7 @@ export default function cardModal() {
 	}
 
 	function createModal(imgFront, imageBack, title, price) {
-		return `<div class="modal ativo">
+		return `<div class="modal">
     <button class="close">X</button>
     <div class="modal-images">
       <div class="wide"><img src="${imgFront}" alt="img-1"></div>
