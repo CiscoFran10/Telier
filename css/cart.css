@@ -3,7 +3,7 @@
 	position: fixed;
 	visibility: hidden;
 	top: 38px;
-	max-height: 95%;
+	height: 95%;
 	font-family: "Cinzel";
 	right: 0px;
 	display: flex;
@@ -20,7 +20,14 @@
 .cart.active {
 	translate: 0px 0px;
 	visibility: visible;
-  width: 500px;
+	width: 500px;
+}
+
+@media (max-width: 900px){
+	.cart.active {
+		top: 20px;
+		width: 100vw;
+	}
 }
 
 @keyframes cart {
