@@ -27,36 +27,61 @@
         <li><a href="./about.html">About</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
-      <button class="cart-btn" href="../cart.html"><img class="icon" src="./img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="Cart button"></button>
+      <button class="cart-btn" id="js-cart-btn" href="../cart.html"><img class="icon" src="./img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="Cart button"></button>
     </nav>
   </header>
 
-  <section class="shop" aria-label="Products">
-    <div>
+  <main>
+    <div class="hero">
       <h1 class="titulo">Shop</h1>
-      <ul class="nav-list" role="menu" aria-label="Secondary navigation">
-        <li><button class="btn" id="all-btn">All</button></li>
-        <li><button class="btn" id="suits-btn">Suits</button></li>
-        <li><button class="btn" id="shoes-btn">Shoes</button></li>
-        <li><button class="btn" id="accessory-btn">Accessories</button></li>
-        <li>
-          <form role="search" class="search-form">
-            <input type="text" id="search-input" placeholder="Search here">
-            <button id="search-btn"><img class="icon" src="./img/search.svg" alt="search-btn"></button>
-          </form>
-        </li>
-      </ul>
     </div>
+    <section class="shop" aria-label="Products">
+      <div class="nav-filter">
+        <ul class="nav-list" role="menu" aria-label="Secondary navigation">
+          <li><button class="btn" id="all-btn">All</button></li>
+          <li><button class="btn" id="suits-btn">Suits</button></li>
+          <li><button class="btn" id="shoes-btn">Shoes</button></li>
+          <li><button class="btn" id="accessory-btn">Accessories</button></li>
+          <li>
+            <form role="search" class="search-form">
+              <input type="text" id="search-input" placeholder="Search here">
+              <button id="search-btn"><img class="icon" src="./img/search.svg" alt="search-btn"></button>
+            </form>
+          </li>
+        </ul>
+      </div>
 
-    <div class="not-found">
-      <h2>Product not found</h2>
+      <div class="not-found">
+        <p>Product not found</p>
+      </div>
+      <div class="products">
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart" id="js-cart">
+    <h1 class="cart-title">My cart</h1>
+    <ul class="cart-list" id="js-cart-list">
+      <li>
+        <!-- <h2 class="empty">Cart empty</h2> -->
+      </li>
+    </ul>
+
+    <div class="cart-order">
+      <div class="cart-order-info">
+        <h2>Subtotal</h2>
+        <span id="subtotal">R$ 310.00</span>
+        <h2>Shipping</h2>
+        <span id="shipping">R$ 8.00</span>
+      </div>
+      <div class="card-order-total">
+        <h2>Total</h2>
+        <span id="total">R$ 318.00</span>
+      </div>
     </div>
-    <div class="products">
-    </div>
+  </aside>
 
-  </section>
-
-  <footer class="footer" aria-label="Rodapé">
+  <footer class="footer" aria-label="Footer">
     <div class="footer-info">
       <h1>RECENT PRODUCTS</h1>
       <p>
@@ -68,7 +93,7 @@
     </div>
     <div class="footer-links">
       <a class="logo" href="./index.html">Telier</a>
-      <ul>
+      <ul role="list">
         <li><a href="./shop.html">Shop</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./contact.html">Contact</a></li>

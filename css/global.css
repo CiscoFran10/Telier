@@ -46,6 +46,7 @@ body {
 	color: var(--color-text);
 	font-family: "Raleway", Arial, Helvetica, sans-serif;
 	position: relative;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* A elements that don't have a class get default styles */
@@ -95,6 +96,10 @@ select {
 	}
 }
 
+.hide {
+	display: none;
+}
+
 .header {
 	display: flex;
 	justify-content: space-between;
@@ -123,6 +128,10 @@ select {
 	display: flex;
 	align-items: center;
 	gap: 40px;
+}
+
+.nav > *.active {
+	background-color: #222;
 }
 
 .header-menu {
@@ -156,14 +165,15 @@ select {
 	display: block;
 	background-color: transparent;
 	border: none;
+	padding: 10px;
 	cursor: pointer;
 	position: relative;
 }
 
 .cart-btn .icon {
-	width: 30px;
+	width: 25px;
 	pointer-events: none;
-	height: 30px;
+	height: 25px;
 }
 
 /* MENU MOBILE */

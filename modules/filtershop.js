@@ -1,4 +1,6 @@
+import cart from "./cart.js";
 import cardModal from "./card-modal.js";
+
 export default function filterShop() {
 	const database = [
 		{
@@ -150,13 +152,13 @@ export default function filterShop() {
 				let { title, imageFront, imageBack, price } = item;
 				return `<div class="card">
 			<div class="images">
-				<img class="img-front" src="${imageFront}" alt="product">
+				<img class="img-front" data-control-cart="image" src="${imageFront}" alt="product">
 				<img class="img-hover" src="${imageBack}">
 			</div>
-			<h2 class="card-title">${title}</h2>
+			<h2 class="card-title" data-control-cart="title">${title}</h2>
 			<div class="flex">
-				<span class="card-price">$ ${price}.00</span>
-				<button>Add to Cart</button>
+				<span class="card-price" data-control-cart="price">$ ${price}.00</span>
+				<button data-control-cart="btn">Add to Cart</button>
 			</div>
 		</div>`;
 			})
@@ -200,24 +202,22 @@ export default function filterShop() {
 
 	function search() {
 		const searchBtn = document.getElementById("search-btn");
-		searchBtn.addEventListener("click", searchItens);
+		searchBtn.addEventListener("click", openSearch);
+		const searchInput = document.getElementById("search-input");
 
-		function searchItens(e) {
+		const notFound = document.querySelector(".not-found");
+
+		function openSearch(e) {
 			e.preventDefault();
-			const searchInput = document.getElementById("search-input");
-			const notFound = document.querySelector(".not-found");
 
-			searchInput.classList.add("ativo");
-
-			window.addEventListener("click", closeInput);
-
-			function closeInput(e) {
-				if (e.target !== searchBtn && e.target !== searchInput) {
-					searchInput.classList.remove("ativo");
-					cardModal();
-				}
+			if (searchInput.classList.contains("ativo")) {
+				searchItens();
 			}
 
+			searchInput.classList.add("ativo");
+		}
+
+		function searchItens() {
 			let searchValue = searchInput.value.toLowerCase();
 
 			if (searchValue) {
@@ -233,18 +233,26 @@ export default function filterShop() {
 					notFound.classList.remove("show");
 				}
 
+				function verificaInput() {
+					if (searchInput.value === "") {
+						generateCards(database);
+						notFound.classList.remove("show");
+						cardModal();
+					}
+				}
+				searchInput.addEventListener("keyup", verificaInput);
+
 				cardModal();
 			}
-
-			function verificaInput() {
-				if (searchInput.value === "") {
-					generateCards(database);
-					notFound.classList.remove("show");
-					cardModal();
-				}
-			}
-			searchInput.addEventListener("keyup", verificaInput);
 		}
+
+		function closeInput(e) {
+			if (e.target !== searchBtn && e.target !== searchInput) {
+				searchInput.classList.remove("ativo");
+				cardModal();
+			}
+		}
+		window.addEventListener("click", closeInput);
 	}
 	search();
 }

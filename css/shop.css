@@ -5,15 +5,24 @@
 	position: relative;
 }
 
+.hero {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(../img/bg/troy-spoelma-xNjGF5ixOKA-unsplash.jpg) no-repeat center;
+	padding: 40px 0px;
+	margin-bottom: 80px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
 .hide {
 	display: none;
 }
 
 .not-found {
 	display: none;
-	margin: 140px;
+	margin: 140px auto;
 	font-family: "Cinzel";
-	font-weight: 400;
+	font-size: 2rem;
 }
 
 .show {
@@ -73,7 +82,7 @@
 	display: flex;
 	align-items: center;
 	position: absolute;
-	top: 330px;
+	top: 30px;
 	transition: 0.3s ease;
 }
 
@@ -121,22 +130,11 @@
 }
 
 .products {
-	padding: 60px 0px;
+	margin: 60px 0px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 	gap: 80px 30px;
 	position: relative;
-}
-
-@keyframes fade {
-	from {
-		transform: translateY(-30px);
-		opacity: 0;
-	}
-	to {
-		transform: translateY(0px);
-		opacity: 1;
-	}
 }
 
 .images {
@@ -181,7 +179,18 @@
 }
 
 .card {
-	animation: fade 0.4s ease;
+	animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+	from {
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
 }
 
 .card-title {
@@ -228,7 +237,7 @@
 @media (max-width: 800px) {
 	.products {
 		grid-template-columns: 1fr;
-		margin-top: 40px;
+		margin-top: 100px;
 	}
 
 	.nav-list .btn:hover,
@@ -260,6 +269,11 @@
 }
 
 @media (max-width: 600px) {
+	.hero {
+		padding: 10px;
+		margin-bottom: 40px;
+	}
+
 	.shop .titulo,
 	.nav-list {
 		text-align: left;
@@ -269,7 +283,7 @@
 		font-size: 2rem;
 	}
 	.search-form {
-		top: 350px;
+		top: 100px;
 		left: 20px;
 	}
 

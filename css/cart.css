@@ -1,0 +1,154 @@
+.cart {
+	overflow: hidden;
+	position: fixed;
+	visibility: hidden;
+	top: 38px;
+	max-height: 95%;
+	font-family: "Cinzel";
+	right: 0px;
+	display: flex;
+	width: 0px;
+	flex-direction: column;
+	margin: 40px auto;
+	padding: 0px 20px;
+	background-color: #000;
+	z-index: 2000;
+	transition: 0.6s ease;
+	translate: 500px 0px;
+}
+
+.cart.active {
+	translate: 0px 0px;
+	visibility: visible;
+  width: 500px;
+}
+
+@keyframes cart {
+	from {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.cart-title {
+	color: #fff;
+	font-size: 1.4rem;
+	background-color: #111;
+	font-weight: 400;
+	padding: 10px 20px;
+}
+
+.cart-list {
+	overflow-y: auto;
+	height: 500px;
+}
+
+.cart-list::-webkit-scrollbar {
+	width: 12px;
+}
+
+.cart-list::-webkit-scrollbar-thumb {
+	background-color: #111;
+}
+
+.cart-item {
+	display: flex;
+	margin: 20px 10px 40px 0px;
+	align-items: center;
+	gap: 20px;
+	animation: cart 0.3s ease;
+}
+
+.cart-item-image {
+	max-width: 80px;
+}
+
+.cart-item-info {
+	flex: 1;
+	display: grid;
+	gap: 10px;
+}
+
+.cart-item-title {
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--color-accent);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cart-item-quantity {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.quantity {
+	font-size: 1.4rem;
+}
+
+.decrement,
+.increment,
+.remove {
+	display: block;
+	cursor: pointer;
+	font-size: 2rem;
+	padding: 0px 20px;
+	border: none;
+	background-color: #111;
+	color: var(--color-accent);
+}
+
+.remove {
+	align-self: flex-end;
+}
+
+.cart-order-info {
+	display: grid;
+	padding: 40px 0px;
+	border-bottom: 2px solid #111;
+	border-top: 2px solid #111;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	align-items: center;
+}
+.cart-order-info h2 {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+.cart-order-info span {
+	font-size: 1.2rem;
+	justify-self: flex-end;
+	font-weight: 300;
+}
+
+.card-order-total {
+	display: flex;
+	align-items: center;
+	padding: 30px 0px;
+	margin-bottom: 40px;
+	justify-content: space-between;
+}
+
+.card-order-total h2 {
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--color-accent);
+}
+
+.card-order-total span {
+	font-size: 1.5rem;
+}
+
+.empty {
+	font-weight: 400;
+	text-align: center;
+	margin: 140px auto;
+}
