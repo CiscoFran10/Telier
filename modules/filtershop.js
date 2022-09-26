@@ -1,4 +1,4 @@
-import cart from "./cart.js";
+import cartEvents from "./cart-events.js";
 import cardModal from "./card-modal.js";
 
 export default function filterShop() {
@@ -175,6 +175,8 @@ export default function filterShop() {
 		const navBtn = document.querySelectorAll(".nav-list .btn");
 
 		navBtn[0].classList.add("active");
+		cardModal();
+		cartEvents();
 		generateCards(database);
 
 		function filterItens(e) {
@@ -184,15 +186,19 @@ export default function filterShop() {
 			if (e.target.id === "suits-btn") {
 				generateCards(suits);
 				cardModal();
+				cartEvents();
 			} else if (e.target.id === "shoes-btn") {
 				generateCards(shoes);
 				cardModal();
+				cartEvents();
 			} else if (e.target.id === "accessory-btn") {
 				generateCards(accessories);
 				cardModal();
+				cartEvents();
 			} else if (e.target.id === "all-btn") {
 				generateCards(database);
 				cardModal();
+				cartEvents();
 			}
 		}
 
@@ -215,6 +221,7 @@ export default function filterShop() {
 			}
 
 			searchInput.classList.add("ativo");
+			searchInput.focus();
 		}
 
 		function searchItens() {
@@ -226,6 +233,8 @@ export default function filterShop() {
 						item.title.toLowerCase().includes(searchValue)
 					)
 				);
+				cardModal();
+				cartEvents();
 
 				if (filter === "") {
 					notFound.classList.add("show");
@@ -238,18 +247,16 @@ export default function filterShop() {
 						generateCards(database);
 						notFound.classList.remove("show");
 						cardModal();
+						cartEvents();
 					}
 				}
 				searchInput.addEventListener("keyup", verificaInput);
-
-				cardModal();
 			}
 		}
 
 		function closeInput(e) {
 			if (e.target !== searchBtn && e.target !== searchInput) {
 				searchInput.classList.remove("ativo");
-				cardModal();
 			}
 		}
 		window.addEventListener("click", closeInput);

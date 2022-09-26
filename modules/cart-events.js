@@ -1,22 +1,16 @@
-export default function cart() {
-	const cart = document.getElementById("js-cart");
-	const cartList = document.getElementById("js-cart-list");
-	const initCartBtn = document.getElementById("js-cart-btn");
+import cardModal from "./card-modal.js";
 
-	function initCart() {
-		this.classList.toggle("active");
-		cart.classList.toggle("active");
-	}
-  
-	initCartBtn.addEventListener("click", initCart);
+export default function cartEvents() {
+	const cartList = document.getElementById("js-cart-list");
 
 	function update() {
 		addEvents();
 		updateTotal();
 	}
+	update();
 
 	function addEvents() {
-		const removeBtn = cart.querySelectorAll(".remove");
+		const removeBtn = cartList.querySelectorAll(".remove");
 		removeBtn.forEach((btn) => btn.addEventListener("click", deleteItem));
 
 		const addCartButtons = document.querySelectorAll("[data-control-cart]");
@@ -53,10 +47,9 @@ export default function cart() {
         <span class="quantity">1</span>
         <button class="increment">+</button>
       </div>
-    </div>
-    <button class="remove">
+			<button class="remove">
       <span class="material-symbols-outlined">delete</span>
-    </button>`;
+    </button>
+    </div>`;
 	}
-	return update();
 }

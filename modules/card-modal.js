@@ -1,4 +1,4 @@
-import cart from "./cart.js";
+import cartEvents from "./cart-events.js";
 
 export default function cardModal() {
 	const modalContainer = document.querySelector(".modal-container");
@@ -19,7 +19,7 @@ export default function cardModal() {
 		const modal = createModal(imgFront, imageBack, title, price);
 		modalContainer.innerHTML = modal;
 		modalContainer.classList.toggle("ativo");
-		cart();
+		cartEvents();
 	}
 
 	function createModal(imgFront, imageBack, title, price) {
