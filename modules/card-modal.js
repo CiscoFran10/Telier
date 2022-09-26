@@ -17,10 +17,18 @@ export default function cardModal() {
 		// let description = element.querySelector(".card-description").innerHTML;
 
 		const modal = createModal(imgFront, imageBack, title, price);
+
 		modalContainer.innerHTML = modal;
 		modalContainer.classList.toggle("ativo");
-		cartEvents();
 	}
+
+	function closeModal(e) {
+		const closeBtn = document.querySelector(".close");
+		if (e.target === closeBtn || e.target === modalContainer) {
+			modalContainer.classList.remove("ativo");
+		}
+	}
+	modalContainer.addEventListener("click", closeModal);
 
 	function createModal(imgFront, imageBack, title, price) {
 		return `<div class="modal">
@@ -34,17 +42,9 @@ export default function cardModal() {
 		<h2 class="modal-title" data-control-cart="title">${title}</h2>
       <p class="modal-description">Sharpen up your formalwear with Jeff Banks this season, the epitome of the quintessential English gentleman. Designed for any occasion, this lightweight, breathable linen suit jacket is the perfect summer piece.</p>
       <span class="modal-price" data-control-cart="price">${price}</span>
-      <button class="modal-btn" data-control-cart>Add to Cart +</button>
+      <button class="modal-btn">Add to Cart +</button>
 			</div>
 			</div>
 			`;
-	}
-
-	modalContainer.addEventListener("click", closeModal);
-	function closeModal(e) {
-		const closeBtn = document.querySelector(".close");
-		if (e.target === closeBtn || e.target === modalContainer) {
-			modalContainer.classList.remove("ativo");
-		}
 	}
 }

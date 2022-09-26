@@ -1,5 +1,3 @@
-import cardModal from "./card-modal.js";
-
 export default function cartEvents() {
 	const cartList = document.getElementById("js-cart-list");
 
@@ -7,7 +5,18 @@ export default function cartEvents() {
 		addEvents();
 		updateTotal();
 	}
-	update();
+
+	function modalBtn() {
+		const initModal = document.querySelectorAll(".card .images");
+		initModal.forEach((item) =>
+			item.addEventListener("click", () => {
+				const modalBtn = document.querySelector(".modal-btn");
+				console.log(modalBtn);
+				modalBtn.addEventListener("click", addItem);
+			})
+		);
+	}
+	modalBtn();
 
 	function addEvents() {
 		const removeBtn = cartList.querySelectorAll(".remove");
@@ -16,8 +25,12 @@ export default function cartEvents() {
 		const addCartButtons = document.querySelectorAll("[data-control-cart]");
 		addCartButtons.forEach((btn) => btn.addEventListener("click", addItem));
 	}
+	addEvents();
 
-	function deleteItem() {}
+	function deleteItem() {
+		this.parentElement.parentElement.remove();
+		update();
+	}
 
 	function addItem(element) {
 		element = this.parentElement.parentElement;
@@ -29,7 +42,8 @@ export default function cartEvents() {
 		const listItem = document.createElement("li");
 		listItem.classList.add("cart-item");
 		listItem.innerHTML = cartItem;
-		cartList.append(listItem);
+		cartList.appendChild(listItem);
+		update();
 	}
 
 	function updateTotal() {}
@@ -52,4 +66,5 @@ export default function cartEvents() {
     </button>
     </div>`;
 	}
+	return addItem;
 }
