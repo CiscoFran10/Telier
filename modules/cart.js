@@ -59,7 +59,7 @@ export function cartEvents() {
 		if (e.target.classList.contains("increment")) {
 			e.target.parentElement.querySelector(".quantity").innerText++;
 			update();
-		} else {
+		} else if (e.target.classList.contains("decrement")) {
 			e.target.parentElement.querySelector(".quantity").innerText--;
 			update();
 		}
