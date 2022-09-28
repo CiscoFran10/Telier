@@ -80,7 +80,7 @@ export function cartEvents() {
 
 			const quantity = +quantityElement.innerHTML;
 			const price = +priceElement.innerHTML.slice(2);
-			totalPrice += price;
+			totalPrice += price * quantity;
 			totalQuantity += quantity;
 
 			if (quantity === 0) {
@@ -95,14 +95,13 @@ export function cartEvents() {
 		}
 
 		cartCounter.innerText = totalQuantity;
-		subtotal.innerHTML = `$ ${totalPrice * totalQuantity}.00`;
+		subtotal.innerHTML = `$ ${totalPrice}.00`;
 		total.innerHTML = `$ ${totalPrice + 8}.00`;
 
 		// TOOLTIP
 
 		const cart = document.getElementById("js-cart");
 		if (!cart.classList.contains("active")) {
-			
 			const tooltip = document.querySelector(".tooltip");
 			tooltip.classList.add("active");
 
