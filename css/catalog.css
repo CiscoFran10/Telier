@@ -37,7 +37,7 @@
 
 .cta-btn::after {
 	content: "⮚";
-	display: block;
+	display: inline;
 	animation: seta 0.5s ease-in 0s infinite alternate;
 }
 
@@ -176,7 +176,6 @@
 	}
 
 	.cta-btn::after {
-    content: "";
 		display: none;
 	}
 }
