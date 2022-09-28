@@ -1,3 +1,19 @@
+.cart-btn {
+	display: block;
+	background-color: transparent;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	position: relative;
+	outline: none;
+}
+
+.cart-btn .icon {
+	width: 25px;
+	pointer-events: none;
+	height: 25px;
+}
+
 .cart {
 	overflow: hidden;
 	position: fixed;
@@ -160,9 +176,20 @@
 }
 
 .empty {
+	color: var(--color-accent);
 	font-weight: 400;
 	text-align: center;
 	margin: 140px auto;
+}
+
+.cart-counter {
+	font-size: 1.3rem;
+	font-family: "Cinzel";
+	pointer-events: none;
+	right: -5px;
+	top: 0px;
+	color: var(--color-accent);
+	position: absolute;
 }
 
 @media (max-width: 440px) {

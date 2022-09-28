@@ -161,21 +161,6 @@ select {
 	background-color: var(--color-accent);
 }
 
-.cart-btn {
-	display: block;
-	background-color: transparent;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	position: relative;
-}
-
-.cart-btn .icon {
-	width: 25px;
-	pointer-events: none;
-	height: 25px;
-}
-
 /* MENU MOBILE */
 
 .btn-mobile {
