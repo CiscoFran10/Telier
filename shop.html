@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Ibarra+Real+Nova:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="shortcut icon" href="../img/icon.svg" type="image/x-icon">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.min.css">
   <title>Telier</title>
 </head>
 
@@ -27,7 +27,9 @@
         <li><a href="./about.html">About</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
-      <button class="cart-btn" id="js-cart-btn" href="../cart.html"><img class="icon" src="./img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="Cart button"></button>
+      <button class="cart-btn" id="js-cart-btn" href="../cart.html"><img class="icon" src="./img/shopping_cart_FILL0_wght400_GRAD0_opsz48.svg" alt="Cart button">
+        <span class="cart-counter"></span></button>
+
     </nav>
   </header>
 
@@ -63,20 +65,20 @@
     <h1 class="cart-title">My cart</h1>
     <ul class="cart-list" id="js-cart-list">
       <li>
-        <!-- <h2 class="empty">Cart empty</h2> -->
+        <h2 class="empty">Cart empty</h2>
       </li>
     </ul>
 
     <div class="cart-order">
       <div class="cart-order-info">
         <h2>Subtotal</h2>
-        <span id="subtotal">R$ 310.00</span>
+        <span id="subtotal">$ 00.00</span>
         <h2>Shipping</h2>
-        <span id="shipping">R$ 8.00</span>
+        <span id="shipping">$ 8.00</span>
       </div>
       <div class="card-order-total">
         <h2>Total</h2>
-        <span id="total">R$ 318.00</span>
+        <span id="total">$ 00.00</span>
       </div>
     </div>
   </aside>
@@ -102,6 +104,19 @@
   </footer>
 
   <div class="modal-container">
+    <div class="modal">
+      <button class="close">X</button>
+      <div class="modal-images">
+        <div class="wide"><img data-control-cart="wide" src="" alt="img-1"></div>
+        <div class="small"><img data-control-cart="small" src="#" alt="img-2"></div>
+        <div class="scale"><img data-control-cart="scale" src="#" alt="img-3"></div>
+      </div>
+      <div class="modal-info">
+        <h2 class="modal-title" data-control-cart="title">title</h2>
+        <p class="modal-description" data-control-cart="description">Sharpen up your formalwear with Jeff Banks this season, the epitome of the quintessential English gentleman. Designed for any occasion, this lightweight, breathable linen suit jacket is the perfect summer piece.</p>
+        <span class="modal-price" data-control-cart="price">0</span>
+      </div>
+    </div>
   </div>
   <script type="module" src="./script.js"></script>
 </body>
