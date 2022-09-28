@@ -32,7 +32,9 @@ export default function filterShop() {
 
 		const navBtn = document.querySelectorAll(".nav-list .btn");
 
-		navBtn[0].classList.add("active");
+		if (navBtn) {
+			navBtn[0].classList.add("active");
+		}
 		generateCards(database);
 		cardModal();
 		cartEvents();

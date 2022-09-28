@@ -1,0 +1,53 @@
+.tooltip.active {
+	display: flex;
+}
+
+.tooltip {
+	max-width: 300px;
+	position: absolute;
+	display: block;
+	top: 95px;
+	right: 22px;
+	background-color: #111;
+	padding: 20px;
+	text-align: center;
+	display: none;
+}
+
+.tooltip::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 20px;
+	top: -35px;
+	right: 100px;
+	border: 20px solid;
+	border-color: transparent transparent #111 transparent;
+}
+
+.tooltip-title {
+	font-size: 1rem;
+	font-family: "Cinzel";
+	font-weight: 400;
+	color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+	.tooltip {
+		top: 80px;
+		right: 7px;
+	}
+}
+
+@media (max-width: 400px) {
+	.tooltip {
+		width: 200px;
+		top: 75px;
+	}
+  .tooltip::before{
+    right: 80px;
+  }
+	.tooltip-title {
+		font-size: 0.75rem;
+	}
+}

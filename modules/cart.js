@@ -1,10 +1,12 @@
 export default function cart() {
 	const cart = document.getElementById("js-cart");
 	const initCartBtn = document.getElementById("js-cart-btn");
+	const tooltip = document.querySelector(".tooltip");
 
 	function initCart() {
 		this.classList.toggle("active");
 		cart.classList.toggle("active");
+		tooltip.classList.remove("active");
 	}
 
 	initCartBtn.addEventListener("click", initCart);
@@ -33,16 +35,6 @@ export function cartEvents() {
 	}
 	addEvents();
 
-	function handleQuantity(e) {
-		if (e.target.classList.contains("increment")) {
-			e.target.parentElement.querySelector(".quantity").innerText++;
-			update();
-		} else {
-			e.target.parentElement.querySelector(".quantity").innerText--;
-			update();
-		}
-	}
-
 	function deleteItem() {
 		this.parentElement.parentElement.remove();
 		update();
@@ -50,7 +42,6 @@ export function cartEvents() {
 
 	function addItem(element) {
 		element = this.parentElement.parentElement;
-		console.log(element);
 		let imgFront = element.querySelector("[data-control-cart='wide']").src;
 		let title = element.querySelector("[data-control-cart='title']").innerHTML;
 		let price = element.querySelector("[data-control-cart='price']").innerHTML;
@@ -62,6 +53,16 @@ export function cartEvents() {
 		cartList.appendChild(listItem);
 		addEvents();
 		updateTotal();
+	}
+
+	function handleQuantity(e) {
+		if (e.target.classList.contains("increment")) {
+			e.target.parentElement.querySelector(".quantity").innerText++;
+			update();
+		} else {
+			e.target.parentElement.querySelector(".quantity").innerText--;
+			update();
+		}
 	}
 
 	function updateTotal() {
@@ -96,6 +97,21 @@ export function cartEvents() {
 		cartCounter.innerText = totalQuantity;
 		subtotal.innerHTML = `$ ${totalPrice * totalQuantity}.00`;
 		total.innerHTML = `$ ${totalPrice + 8}.00`;
+
+		// TOOLTIP
+
+		const cart = document.getElementById("js-cart");
+		if (!cart.classList.contains("active")) {
+			
+			const tooltip = document.querySelector(".tooltip");
+			tooltip.classList.add("active");
+
+			function closeTooltip() {
+				tooltip.classList.remove("active");
+			}
+
+			setTimeout(closeTooltip, 8000);
+		}
 	}
 
 	function createCartItem(imgFront, title, price) {
